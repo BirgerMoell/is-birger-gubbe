@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Card Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .preview-card {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+        
+        .title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .status {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+        
+        .status.gubbe {
+            background: rgba(38, 222, 129, 0.9);
+            color: white;
+        }
+        
+        .status.not-gubbe {
+            background: rgba(255, 107, 107, 0.9);
+            color: white;
+        }
+        
+        .age {
+            font-size: 1.8rem;
+            opacity: 0.9;
+        }
+        
+        .swedish-flag {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 120px;
+            height: 80px;
+            background: linear-gradient(to bottom, #006aa7 0%, #006aa7 40%, #fecc00 40%, #fecc00 60%, #006aa7 60%, #006aa7 100%);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .swedish-flag::after {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            width: 16px;
+            height: 100%;
+            background: #fecc00;
+        }
+        
+        .floating-emoji {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.7;
+        }
+        
+        .floating-emoji:nth-child(1) { top: 80px; left: 80px; }
+        .floating-emoji:nth-child(2) { top: 120px; right: 200px; }
+        .floating-emoji:nth-child(3) { bottom: 100px; left: 150px; }
+        .floating-emoji:nth-child(4) { bottom: 140px; right: 100px; }
+    </style>
+</head>
+<body>
+    <div class="preview-card" id="previewCard">
+        <div class="floating-emoji">🎂</div>
+        <div class="floating-emoji">🎉</div>
+        <div class="floating-emoji">👴</div>
+        <div class="floating-emoji">🇸🇪</div>
+        <div class="swedish-flag"></div>
+        
+        <div class="content">
+            <div class="title">Is Birger Moëll Gubbe? 🤔</div>
+            <div class="status" id="statusBadge">🧓 YES! He's Gubbe!</div>
+            <div class="age" id="ageDisplay">40 years old - Official Swedish gubbe status!</div>
+        </div>
+    </div>
+    
+    <script>
+        // Same age calculation logic
+        const BIRTH_YEAR = 1986;
+        const BIRTH_MONTH = 1;
+        const BIRTH_DAY = 28;
+        
+        function calculateAge(birthYear, birthMonth, birthDay) {
+            const today = new Date();
+            const birthDate = new Date(birthYear, birthMonth, birthDay);
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            return age;
+        }
+        
+        function updatePreview() {
+            const age = calculateAge(BIRTH_YEAR, BIRTH_MONTH, BIRTH_DAY);
+            const isGubbe = age >= 40;
+            
+            const statusBadge = document.getElementById('statusBadge');
+            const ageDisplay = document.getElementById('ageDisplay');
+            
+            if (isGubbe) {
+                statusBadge.className = 'status gubbe';
+                statusBadge.textContent = '🧓 YES! He\'s Gubbe!';
+                ageDisplay.textContent = `${age} years old - Official Swedish gubbe status!`;
+            } else {
+                statusBadge.className = 'status not-gubbe';
+                statusBadge.textContent = '👨 Not Gubbe Yet!';
+                ageDisplay.textContent = `${age} years old - ${40 - age} years until gubbedom!`;
+            }
+        }
+        
+        updatePreview();
+        
+        // Instructions for screenshot
+        console.log('Take a screenshot of the preview-card element at 1200x630 resolution');
+        console.log('This will be used as the social media preview image');
+    </script>
+</body>
+</html>

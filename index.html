@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Is Birger Moëll Gubbe? 👴</title>
+    
+    <!-- Social Media Preview Meta Tags -->
+    <meta property="og:title" content="Is Birger Moëll Gubbe? 👴🇸🇪" id="og-title">
+    <meta property="og:description" content="The most important question of our time! Find out if Birger has reached official gubbe status (40+) with live countdown to his birthday!" id="og-description">
+    <meta property="og:image" content="https://birgermoell.github.io/is-birger-gubbe/preview.svg" id="og-image">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://birgermoell.github.io/is-birger-gubbe/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Is Birger Gubbe?">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Is Birger Moëll Gubbe? 👴🇸🇪" id="twitter-title">
+    <meta name="twitter:description" content="The most important question of our time! Find out if Birger has reached official gubbe status (40+) with live countdown!" id="twitter-description">
+    <meta name="twitter:image" content="https://birgermoell.github.io/is-birger-gubbe/preview.svg" id="twitter-image">
+    
+    <!-- Additional Meta -->
+    <meta name="description" content="Interactive Swedish birthday tracker: Is Birger Moëll gubbe? (40+) Live countdown to Feb 28th with Swedish cultural flair!" id="meta-description">
+    <meta name="keywords" content="birger moell, gubbe, swedish, birthday, countdown, age calculator, sweden">
+    <meta name="author" content="Birger Moëll">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
         
@@ -301,9 +322,35 @@
                 ageText.innerHTML = `He's ${age} years old - still ${40 - age} years until gubbedom!`;
             }
             
+            // Update social media meta tags dynamically
+            updateSocialMediaMeta(age, gubbeStatus);
+            
             // Add pulse animation
             statusCard.classList.add('pulse');
             setTimeout(() => statusCard.classList.remove('pulse'), 2000);
+        }
+        
+        function updateSocialMediaMeta(age, gubbeStatus) {
+            const baseTitle = "Is Birger Moëll Gubbe?";
+            const statusEmoji = gubbeStatus ? "🧓✅" : "👨⏳";
+            const statusText = gubbeStatus ? "YES! He's officially gubbe!" : "Not quite gubbe yet!";
+            
+            const dynamicTitle = `${baseTitle} ${statusEmoji}`;
+            const dynamicDescription = `${statusText} Birger is ${age} years old. ${gubbeStatus ? 'Wise Swedish gubbe status achieved!' : `Only ${40 - age} years until gubbedom!`} Live countdown to Feb 28th!`;
+            
+            // Update page title
+            document.title = dynamicTitle;
+            
+            // Update Open Graph tags
+            document.getElementById('og-title').setAttribute('content', dynamicTitle);
+            document.getElementById('og-description').setAttribute('content', dynamicDescription);
+            
+            // Update Twitter Card tags
+            document.getElementById('twitter-title').setAttribute('content', dynamicTitle);
+            document.getElementById('twitter-description').setAttribute('content', dynamicDescription);
+            
+            // Update meta description
+            document.getElementById('meta-description').setAttribute('content', dynamicDescription);
         }
         
         function updateCountdown() {
