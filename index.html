@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is Birger Moëll Gubbe? 👴</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #718096;
+            margin-bottom: 2rem;
+        }
+        
+        .status-card {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+        
+        .status-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .status-card.gubbe {
+            background: linear-gradient(135deg, #26de81, #20bf6b);
+        }
+        
+        .status-text {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .age-text {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .countdown-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 15px;
+        }
+        
+        .countdown-title {
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .time-unit {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .time-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .time-label {
+            font-size: 0.9rem;
+            color: #718096;
+            text-transform: uppercase;
+        }
+        
+        .fun-facts {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #fff5f5;
+            border-radius: 15px;
+            border-left: 5px solid #ff6b6b;
+        }
+        
+        .fact-title {
+            font-size: 1.3rem;
+            color: #c53030;
+            margin-bottom: 1rem;
+        }
+        
+        .fact-list {
+            text-align: left;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .swedish-flag {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 60px;
+            height: 40px;
+            background: linear-gradient(to bottom, #006aa7 0%, #006aa7 40%, #fecc00 40%, #fecc00 60%, #006aa7 60%, #006aa7 100%);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .swedish-flag::after {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            width: 8px;
+            height: 100%;
+            background: #fecc00;
+        }
+        
+        .floating-emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .floating-emoji:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-emoji:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+        .floating-emoji:nth-child(3) { bottom: 15%; left: 20%; animation-delay: 2s; }
+        .floating-emoji:nth-child(4) { bottom: 25%; right: 10%; animation-delay: 1.5s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .title { font-size: 2rem; }
+            .container { padding: 2rem; margin: 1rem; }
+            .countdown { grid-template-columns: repeat(2, 1fr); }
+            .time-value { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-emoji">🎂</div>
+    <div class="floating-emoji">🎉</div>
+    <div class="floating-emoji">👴</div>
+    <div class="floating-emoji">🇸🇪</div>
+    
+    <div class="container">
+        <div class="swedish-flag"></div>
+        
+        <h1 class="title">Is Birger Moëll Gubbe?</h1>
+        <p class="subtitle">The most important question of our time! 🤔</p>
+        
+        <div id="statusCard" class="status-card">
+            <div class="status-text" id="statusText">🤔 Calculating...</div>
+            <div class="age-text" id="ageText">Hold on while we crunch the numbers!</div>
+        </div>
+        
+        <div class="countdown-section">
+            <h2 class="countdown-title">⏰ Countdown to Next Birthday (Feb 28th)</h2>
+            <div class="countdown">
+                <div class="time-unit">
+                    <div class="time-value" id="days">---</div>
+                    <div class="time-label">Days</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="hours">---</div>
+                    <div class="time-label">Hours</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="minutes">---</div>
+                    <div class="time-label">Minutes</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="seconds">---</div>
+                    <div class="time-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="fun-facts">
+            <h3 class="fact-title">🇸🇪 Fun Swedish Facts About Being Gubbe</h3>
+            <div class="fact-list">
+                • In Sweden, "gubbe" literally means "old man" but is used playfully<br>
+                • Traditionally, 40 is when you officially become "gubbe"<br>
+                • Swedish men are known to age like fine wine (or good cheese)<br>
+                • Once you're gubbe, you can complain about the weather with authority<br>
+                • You earn the right to say "Back in my day..." unironically
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with ❤️ and Swedish humor<br>
+            <a href="https://github.com/birgermoell/is-birger-gubbe">View source on GitHub</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Birger's birthday: February 28th
+        // Assuming birth year 1986 for now (can be adjusted)
+        const BIRTH_YEAR = 1986;
+        const BIRTH_MONTH = 1; // February (0-indexed)
+        const BIRTH_DAY = 28;
+        
+        function calculateAge(birthYear, birthMonth, birthDay) {
+            const today = new Date();
+            const birthDate = new Date(birthYear, birthMonth, birthDay);
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            return age;
+        }
+        
+        function isGubbe(age) {
+            return age >= 40;
+        }
+        
+        function updateStatus() {
+            const age = calculateAge(BIRTH_YEAR, BIRTH_MONTH, BIRTH_DAY);
+            const gubbeStatus = isGubbe(age);
+            
+            const statusCard = document.getElementById('statusCard');
+            const statusText = document.getElementById('statusText');
+            const ageText = document.getElementById('ageText');
+            
+            if (gubbeStatus) {
+                statusCard.classList.add('gubbe');
+                statusText.innerHTML = '🧓 YES! Birger är gubbe!';
+                ageText.innerHTML = `He's ${age} years old - officially a wise Swedish gubbe!`;
+            } else {
+                statusCard.classList.remove('gubbe');
+                statusText.innerHTML = '👨 Not quite gubbe yet!';
+                ageText.innerHTML = `He's ${age} years old - still ${40 - age} years until gubbedom!`;
+            }
+            
+            // Add pulse animation
+            statusCard.classList.add('pulse');
+            setTimeout(() => statusCard.classList.remove('pulse'), 2000);
+        }
+        
+        function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            let nextBirthday = new Date(currentYear, BIRTH_MONTH, BIRTH_DAY);
+            
+            // If birthday has passed this year, set to next year
+            if (nextBirthday < now) {
+                nextBirthday.setFullYear(currentYear + 1);
+            }
+            
+            const timeDiff = nextBirthday - now;
+            
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Initialize
+        updateStatus();
+        updateCountdown();
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        
+        // Add some fun interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make floating emojis clickable
+            document.querySelectorAll('.floating-emoji').forEach(emoji => {
+                emoji.addEventListener('click', function() {
+                    this.style.animation = 'none';
+                    this.style.transform = 'scale(1.5) rotate(360deg)';
+                    setTimeout(() => {
+                        this.style.animation = '';
+                        this.style.transform = '';
+                    }, 1000);
+                });
+            });
+            
+            // Add click effect to status card
+            document.getElementById('statusCard').addEventListener('click', function() {
+                updateStatus();
+            });
+        });
+    </script>
+</body>
+</html>
